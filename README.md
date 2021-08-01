@@ -78,7 +78,7 @@ pip3  install pyinstaller -i http://pypi.douban.com/simple/ --trusted-host pypi.
 2,项目打包
 
 ```
-pyinstaller -w -F --add-data "templates:templates" --add-data "static:static" apindex.py
+pyinstaller -w -F --add-data "templates:templates" --add-data "static:static" index.py
 pyinstaller -D index.spec
 
 输出目录在dist目录下
