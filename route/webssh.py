@@ -38,10 +38,19 @@ def ssh():
         pwd=request.values.get('pwd')
         #创建ssh链接
         sshclient = paramiko.SSHClient()
+        
         sshclient.load_system_host_keys()
         sshclient.set_missing_host_key_policy(paramiko.AutoAddPolicy()) #不限制白名单以外的连接
+        
         try:
-            sshclient.connect(host, port, username, pwd)
+            print("11111111111111111111111111111111111111111111")
+            print(host)
+            print(port)
+            print(username)
+            print(pwd)
+            transport = sshclient.connect(host, port, username, pwd,banner_timeout=30)
+            # transport.banner_timeout = 30
+            print("222222222222222222222222222222222222222222222")
             chan = sshclient.invoke_shell(term='xterm') #创建交互终端
             chan.settimeout(0)
             ids = str(int(time.time()+random.randint(1,999999999)))

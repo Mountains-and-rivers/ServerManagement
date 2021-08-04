@@ -2,7 +2,7 @@
 <html class="x-admin-sm">
     <head>
         <meta charset="UTF-8">
-        <title>文瑞服务器管理工具</title>
+        <title>IOCC服务器管理工具</title>
         <meta name="renderer" content="webkit|ie-comp|ie-stand">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
@@ -20,7 +20,7 @@
         <!-- 顶部开始 -->
         <div class="container">
             <div class="logo">
-                <a style="font-size: 15px">欢迎使用文瑞管理工具</a></div>
+                <a style="font-size: 15px">欢迎使用IOCC管理工具</a></div>
                 <ul class="layui-nav right">
                 	<li class="layui-nav-item to-index"><a href="/loginout">退出登录</a> </li>
                 	<span class="layui-nav-bar" style="left: 136.688px; top: 40px; width: 0px; opacity: 0;"></span>	
@@ -55,7 +55,7 @@
                 </div>
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
-                        <iframe src='/ControlPanel' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                        <iframe src='/file' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
                     </div>
                 </div>
                 <div id="tab_show"></div>
@@ -72,6 +72,7 @@
         	var tabStr = ''
         	for (var i = 0; i < navs.length; i++) {
         		nd = navs[i]
+                if (nd.title != "文件管理") continue
         		var strVar = "";
         		if(typeof(nd.children)=="undefined"){
 				    strVar += "   <li>\n";
@@ -88,6 +89,7 @@
 				    strVar += "           <ul class=\"sub-menu\">\n";
 				    for (var c = 0; c < nd.children.length; c++) {
 				    	nc = nd.children[c]
+                        if (nc.title != "文件管理") continue
 				    	strVar += "               <li>\n";
 					    strVar += "                   <a onclick=\"xadmin.add_tab('"+nc.title+"','"+nc.href+"')\">\n";
 					    strVar += "                       <i class=\"iconfont\">&#xe6a7;<\/i>\n";

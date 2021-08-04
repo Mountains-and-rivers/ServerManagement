@@ -12,7 +12,7 @@ class sqlClass(object):
         self.createSystemInfo()
     def createSystemInfo(self):
         logDB = 'mange.db'
-        sqlpath=(os.path.dirname(os.path.realpath(__file__)))
+        sqlpath=os.path.join(os.getcwd(),'sqlitedb')
         if logDB in os.listdir(sqlpath):
             self.con = sqlite3.connect(os.path.join(sqlpath,logDB),check_same_thread = False)
         else:

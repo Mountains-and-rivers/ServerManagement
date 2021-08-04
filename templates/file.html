@@ -103,6 +103,8 @@
             var hem = '';
             var chked = ''
             $.each(te, function (i, item) {
+                if (item != null && item.fileName != undefined && item.fileName.indexOf("/Applog") == 0) {
+               
                 if (selectedList.indexOf(Base64.encode(item.fileName)) != -1) {
                     chked = ' checked '
                 } else {
@@ -153,6 +155,7 @@
                     hem += "&#12288;<a class='layui-btn layui-btn-normal layui-btn-sm'  href='javascript:void(0);' onclick='Extract()' id='" + item.fileName + "'>解压</a>";
                 };
                 hem += "</tr></td>";
+            }
             });
             return hem;
         };
@@ -195,6 +198,7 @@
                             layer.alert(jQuery.parseJSON(data).result,{title:false,skin: "layui-layer-molv",area: ["250px", "150px"],time: 10000,btn:["知道了"]});
                             return 0
                         };
+
                         path = Base64.decode(jQuery.parseJSON(data).result.path);
                         nowPath = path
                         files = jQuery.parseJSON(data).result.files;
@@ -211,6 +215,8 @@
                                 var curr = obj.curr;
                                 if (!first) {
                                     var te = files.slice(curr * 15 - 15, curr * 15);
+                                    console.log("111111111111111")
+                                    console.log(te)
                                     hem = getHtml(te);
                                     document.getElementById("dataList").innerHTML = hem;
                                 }
