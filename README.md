@@ -65,6 +65,9 @@
 1,安装依赖
 
 ```
+python3 --version
+Python 3.6.8
+
 pip3 install --upgrade pip -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
 pip3  install pyinstaller
 pip3 install wheel -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
